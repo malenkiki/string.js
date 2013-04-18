@@ -556,4 +556,23 @@ String.prototype.removeDiacritic = function(){
     .replace(/[æ]/g, 'ae')
     .replace(/[ß]/g, 'ss')
     .replace(/ŀl/g, 'll')
+    .replace(/[ÉÈÊËĘẼĚ]/g, 'E')
+    .replace(/[ÁÀÂÄĄÃÅǍÃ]/g, 'A')
+    .replace(/[ÓÒÔÖÕǑØÕ]/g, 'O')
+    .replace(/[ÍÌÎÏĨǏ]/g, 'I')
+    .replace(/[ÚÙÛÜŨŮǓ]/g, 'U')
+    .replace(/[ÝỲŶŸỸ]/g, 'Y')
+    .replace(/[Ç]/g, 'C')
+    .replace(/[Ñ]/g, 'N')
+    .replace(/[Œ]/g, 'OE')
+    .replace(/[Ł]/g, 'L')
+    .replace(/[Ð]/g, 'DH')
+    .replace(/[Þ]/g, 'TH')
+    .replace(/[Æ]/g, 'AE')
+    .replace(/ĿL/g, 'LL')
 }
+
+String.prototype.slug = function(){
+    return this.removeDiacritic().toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/-$/, '')
+}
+
